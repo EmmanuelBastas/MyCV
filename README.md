@@ -1,7 +1,9 @@
 MyCV
+A simple personal portfolio webpage showcasing my CV, built with HTML and CSS.
 
-This is a simple HTML and CSS resume project showcasing my skills, experience, and background.
+🔗 Live Demo: My CV
 
-Preview
-
-You can view the live version of my CV here: My Online CV
+Features
+Personal information
+Experience & skills overview
+Clean and professional design
