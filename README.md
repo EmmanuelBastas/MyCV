@@ -1,12 +1,12 @@
-MyCV
+# MyCV
 
 A simple and elegant personal portfolio webpage showcasing my CV, built using HTML, CSS, and Bootstrap.
 
-🚀 Live Demo
+## 🚀 Live Demo
 
-📌 **[Live Demo: MyCV](https://your-live-demo-link/)**
+📌 **[Live Demo: MyCV](https://emmanuelbastas.github.io/MyCV/)**
 
-✨ Features
+## ✨ Features
 
 📌 Personal Information – A brief introduction and contact details
 
@@ -14,10 +14,10 @@ A simple and elegant personal portfolio webpage showcasing my CV, built using HT
 
 🎨 Clean and professional design
 
-🛠 Technologies Used
+## 🛠 Technologies Used
 
-HTML5
+- HTML5
 
-CSS3
+- CSS3
 
-Bootstrap
+- Bootstrap
