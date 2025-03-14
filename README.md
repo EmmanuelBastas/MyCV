@@ -1,13 +1,14 @@
 MyCV
+A simple and elegant personal portfolio webpage showcasing my CV, built using HTML, CSS, and Bootstrap.
 
-A simple personal portfolio webpage showcasing my CV, built with HTML, CSS, and Bootstrap.
+🚀 Live Demo
+My CV
 
-📎 Live Demo: My CV
-
-Features
-
-Personal information
-
-Experience & skills overview
-
-Clean and professional design
+✨ Features
+📌 Personal Information – A brief introduction and contact details
+💼 Experience & Skills Overview
+🎨 Clean and professional design
+🛠 Technologies Used
+HTML5
+CSS3
+Bootstrap
