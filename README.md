@@ -19,5 +19,3 @@ A simple and elegant personal portfolio webpage showcasing my CV, built using HT
 - HTML5
 
 - CSS3
-
-- Bootstrap
