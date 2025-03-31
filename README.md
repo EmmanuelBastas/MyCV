@@ -1,6 +1,6 @@
 # MyCV
 
-A simple and elegant personal portfolio webpage showcasing my CV, built using HTML, CSS, and Bootstrap.
+A simple and elegant personal portfolio webpage showcasing my CV, built using HTML and CSS.
 
 ## 🚀 Live Demo
 
