@@ -1,56 +1,12 @@
-@media print {
-  body {
-    width: 210mm;
-    height: 297mm;
-    margin: 0;
-    padding: 10mm;
-    scale: 0.9;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-
-  .resume,
-  .sidebar,
-  .sideSub,
-  .skills,
-  .familiarWith,
-  .learning,
-  .mainBody,
-  .nameRole,
-  .aboutMe,
-  .contactInfo,
-  .contactLeft,
-  .contactRight,
-  .workExp,
-  .workTime,
-  .workJob,
-  .hobbies,
-  .languages,
-  .nameRole,
-  .profilePic {
-    page-break-inside: avoid;
-  }
-}
-
-html,
-body {
-  width: 100%;
-  height: 100%;
-}
-
-@page {
-  size: A4;
-  margin: 10mm;
-}
-
+/* -----------------------------
+   IMPORTS AND FONT DECLARATIONS
+   ----------------------------- */
 @import url("https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;500;600;700&display=swap");
 
 @font-face {
   font-family: "GreekFreak";
   src: url("fonts/Greek-Freak.ttf") format("truetype"),
     url("fonts/Greek-Freak.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
 }
 
 @font-face {
@@ -62,12 +18,42 @@ body {
   font-family: "BreitkopfFraktur";
   src: url("fonts/BreitkopfFraktur.ttf") format("truetype");
 }
+
+/* -----------------------------
+   CSS VARIABLES
+   ----------------------------- */
 :root {
   --bg-clr: #f0efeb;
   --sideb-clr: #eddcd2;
   --main-body-clr: #fff1e6;
   --primary-text-clr: #525252;
   --profpic-bg-clr: #ddbea9;
+  
+  /* Typography */
+  --large-font: clamp(2.5rem, 5vw, 5rem);
+  --heading-font: clamp(1.3rem, 2vw, 1.5rem);
+  --subheading-font: clamp(1rem, 1.5vw, 1.2rem);
+  --body-font: clamp(0.9rem, 1vw, 1rem);
+  --small-font: clamp(0.8rem, 0.9vw, 0.9rem);
+  
+  /* Spacing */
+  --container-padding: 35px;
+  --content-gap: clamp(15px, 2.5vh, 25px);
+  --section-gap: clamp(20px, 3vh, 30px);
+  --item-gap: clamp(4px, 1vh, 6px);
+  
+  /* Icon sizes */
+  --icon-size: clamp(30px, 4vw, 45px);
+  --icon-font: clamp(16px, 2vw, 25px);
+}
+
+/* -----------------------------
+   RESET AND BASE STYLES
+   ----------------------------- */
+html,
+body {
+  width: 100%;
+  height: 100%;
 }
 
 * {
@@ -75,296 +61,325 @@ body {
   padding: 0;
   box-sizing: border-box;
   list-style: none;
-  font-family: "Enriqueta", serif;
-  box-shadow: none;
-  page-break-inside: avoid;
-}
-
-body {
-  background: var(--bg-clr);
-  font-size: 12px;
-  line-height: 20px;
+  font-family: "Roboto", sans-serif;
   color: var(--primary-text-clr);
-  padding: 0 20px;
+  page-break-inside: avoid;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+  color-adjust: exact !important;
 }
 
-h2 {
-  font-family: "Roboto", serif;
-  text-transform: uppercase;
-  text-align: center;
-  margin-bottom: 20px;
+/* -----------------------------
+   LAYOUT - MAIN CONTAINERS
+   ----------------------------- */
+.cv-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  width: 100%;
+  max-width: 800px;
+  min-height: 100%;
+  margin: 0 auto;
+  background-color: var(--main-body-clr);
 }
 
-.resume {
-  display: flex;
-  width: 800px;
-  max-width: 100%;
+/* -----------------------------
+   SIDEBAR STYLES
+   ----------------------------- */
+.cv-sidebar {
+  background-color: var(--sideb-clr);
+}
+
+/* Profile Image */
+.profile-image-container {
+  width: 100%;
   height: auto;
-  margin: 50px auto;
+  padding: var(--container-padding);
+  background-color: var(--profpic-bg-clr);
+  aspect-ratio: 1/1;
 }
 
-.resume .sidebar {
-  width: 270px;
-  background: var(--sideb-clr);
-}
-
-.resume .mainBody {
-  width: calc(800px - 270px);
-  background: var(--main-body-clr);
-}
-
-.resume .sidebar .profilePic {
+.profile-image-container img {
   width: 100%;
-  height: 260px;
-  padding: 35px;
+  height: 100%; 
+  object-fit: cover;
 }
 
-.resume .sidebar .profilePic {
-  background: var(--profpic-bg-clr);
-}
-
-.resume .sidebar .profilePic img {
-  width: 100%;
-}
-
-.resume .sidebar .sideSub {
-  padding: 35px;
-  text-align: left;
-}
-
-.resume .sidebar .sideSub .skills h2 {
-  font-family: "Roboto", sans-serif;
-  font-size: 25px;
-  text-decoration: underline;
-  text-underline-offset: 5px;
-  text-decoration-thickness: 2px;
-  padding-bottom: 10px;
-}
-
-.resume .sidebar .sideSub .skills h3 {
-  font-family: "Roboto", sans-serif;
-  font-size: 20px;
-  padding-bottom: 10px;
-  text-decoration: underline;
-  text-underline-offset: 5px;
-  text-decoration-thickness: 1px;
-  padding-bottom: 10px;
-}
-
-.resume .sidebar .sideSub .skills h4 {
-  font-family: "Roboto", sans-serif;
-  font-size: 15px;
-  padding-bottom: 10px;
-}
-
-.resume .sidebar .sideSub .skills ul li {
-  font-family: "Roboto", sans-serif;
-  font-size: 15px;
-}
-
-.resume .sidebar .sideSub > div:not(:last-child),
-.resume .mainBody > div:not(:last-child) {
-  margin-bottom: 35px;
-}
-
-.resume .mainBody .hobbies ul li i,
-.resume .mainBody .hobbies ul li i:not(:last-child) {
-  display: flex;
-  align-items: center;
-}
-
-.resume .sidebar .skills ul li i,
-.resume .sidebar .skills ul li i:not(:last-child) {
-  display: flex;
-  align-items: center;
-}
-
-.resume .sidebar .sideSub ul li {
-  margin-bottom: 10px;
-}
-
-.resume .sidebar .skills ul li i:first-child,
-.resume .mainBody .hobbies ul li i:first-child {
-  width: 45px;
-  height: 45px;
-  background: var(--profpic-bg-clr);
-  margin-right: 15px;
-  border-radius: 50%;
-  justify-content: center;
-  font-size: 25px;
-}
-
-.resume .sidebar .skills ul li {
-  display: flex;
-  align-items: center;
-  font-weight: bold;
-}
-
-.resume .sidebar .skills ul li i {
-  margin-right: 10px;
-}
-
-.resume .mainBody .hobbies ul {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.resume .mainBody .nameRole p {
-  font-family: "Roboto", sans-serif;
-  font-size: 80px;
-  line-height: 60px;
-  text-align: center;
-}
-
-.resume .mainBody .nameRole p:first-child {
-  padding-top: 70px;
-}
-
-.resume .mainBody .nameRole p:last-child {
-  padding-bottom: 50px;
-}
-
-.resume .mainBody .contactInfo h2 {
-  font-family: "Roboto", sans-serif;
-  font-size: 25px;
-  text-decoration: underline;
-  text-underline-offset: 5px;
-  text-decoration-thickness: 2px;
-}
-
-.resume .mainBody .contactInfo ul {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 500px;
-  margin: auto;
-  padding: 20px;
-  list-style: none;
-}
-
-.resume .mainBody .contactInfo ul li {
-  font-family: "Roboto", sans-serif;
-  font-size: 15px;
-  font-weight: bold;
-}
-
-.resume .mainBody .contactInfo .contactLeft,
-.resume .mainBody .contactInfo .contactRight {
+/* Sidebar Content */
+.sidebar-content {
+  padding: var(--container-padding);
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: var(--content-gap);
 }
 
-.contactLeft {
-  text-align: left;
+.sidebar-content .section-title {
+  font-size: var(--heading-font);
+  font-weight: 600;
+  margin-bottom: var(--item-gap);
 }
 
-.contactRight {
-  text-align: right;
-}
-
-.resume .mainBody .aboutMe h2 {
-  font-family: "Roboto", sans-serif;
-  font-size: 25px;
-  text-decoration: underline;
-  text-underline-offset: 5px;
-  text-decoration-thickness: 2px;
-}
-
-.resume .mainBody .aboutMe p {
-  padding: 35px;
-  font-family: "Roboto", sans-serif;
-  font-size: 15px;
-  font-weight: bold;
-  text-align: center;
-}
-
-.resume .mainBody .workExp h2 {
-  padding-bottom: 35px;
-  font-family: "Roboto", sans-serif;
-  font-size: 25px;
-  text-decoration: underline;
-  text-underline-offset: 5px;
-  text-decoration-thickness: 2px;
-}
-
-.resume .mainBody .workExp p {
-  padding-left: 35px;
-  font-family: "Roboto", sans-serif;
-  font-size: 15px;
-  font-weight: bold;
-  text-align: left;
-}
-
-.resume .mainBody .workExp .workTime p {
-  padding: 10px 0 10px 35px;
-  text-decoration: underline;
-}
-
-.resume .mainBody .workExp .workJob p::before {
-  content: "•";
-  margin-right: 4px;
-}
-
-.resume .mainBody .hobbies h2 {
-  font-family: "Roboto", sans-serif;
-  font-size: 25px;
-  text-decoration: underline;
-  text-underline-offset: 5px;
-  text-decoration-thickness: 2px;
-}
-
-.resume .mainBody .hobbies ul li {
-  padding-left: 35px;
-  font-family: "Roboto", sans-serif;
-  font-size: 15px;
-  font-weight: bold;
-  text-align: left;
-}
-
-.resume .mainBody .hobbies h2 {
-  padding: 0 35px 35px 35px;
-  font-family: "Roboto", sans-serif;
-  font-weight: bold;
-  text-align: center;
-}
-
-.resume .mainBody .languages h2 {
-  padding: 30px 0;
-  font-family: "Roboto", sans-serif;
-  font-size: 25px;
-  text-decoration: underline;
-  text-underline-offset: 5px;
-  text-decoration-thickness: 2px;
-}
-
-.resume .mainBody .languages ul {
+/* Skill Categories */
+.skills-section {
   display: flex;
+  flex-direction: column;
+  gap: var(--item-gap);
+}
+
+.skill-category {
+  display: flex;
+  flex-direction: column;
+  gap: var(--item-gap);
+  margin-bottom: var(--content-gap);
+}
+
+.category-title {
+  font-size: var(--subheading-font);
+  font-weight: 600;
+  margin-bottom: var(--item-gap);
+}
+
+.skill-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--item-gap);
+  margin-left: 1em;
+  margin-bottom: var(--item-gap);
+}
+
+.skill-group-title {
+  font-size: var(--small-font);
+  font-weight: 600;
+  margin-bottom: 0.2em;
+}
+
+.skill-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--item-gap);
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: var(--item-gap);
+  font-size: var(--small-font);
+}
+
+.skill-icon {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  background-color: var(--profpic-bg-clr);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  list-style: none;
-  padding: 0;
+  font-size: var(--icon-font);
 }
 
-.resume .mainBody .languages ul li {
-  margin: 0 30px;
-  font-family: "Roboto", sans-serif;
-  font-size: 15px;
-  font-weight: bold;
-  text-align: left;
+/* -----------------------------
+   MAIN CONTENT STYLES
+   ----------------------------- */
+.cv-main-content {
+  padding: var(--container-padding);
+  display: flex;
+  flex-direction: column;
+  gap: var(--content-gap);
+  background-color: var(--main-body-clr);
 }
 
-.resume .mainBody .languages ul li:first-child {
-  font-size: 30px;
-  font-family: "GreekFreak", sans-serif;
+/* Name Header */
+.cv-name {
+  font-size: var(--large-font);
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: var(--item-gap);
 }
 
-.resume .mainBody .languages ul li:nth-child(2) {
-  font-size: 30px;
-  font-family: "Canterbury", sans-serif;
+/* Section Styles */
+.contact-section,
+.about-section,
+.experience-section,
+.hobbies-section,
+.languages-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--content-gap);
+  margin-bottom: var(--content-gap);
 }
 
-.resume .mainBody .languages ul li:last-child {
-  font-size: 30px;
-  font-family: "BreitkopfFraktur", sans-serif;
+.section-title {
+  font-size: var(--heading-font);
+  font-weight: 600;
+  text-align: center;
+  text-decoration: underline;
+  margin: 0 auto;
+  margin-bottom: var(--item-gap);
+}
+
+/* Contact Section */
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--item-gap);
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: var(--item-gap);
+  font-size: var(--small-font);
+}
+
+.contact-item:not(:last-child) {
+  margin-bottom: var(--item-gap);
+}
+
+.contact-item a {
+  margin-left: auto;
+}
+
+.about-text {
+  text-align: center;
+}
+
+/* Experience Section */
+.experience-item h6 {
+  font-size: var(--subheading-font);
+  font-weight: 600;
+  margin-bottom: var(--item-gap);
+}
+
+.experience-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--item-gap);
+}
+
+.experience-details li {
+  list-style-type: disc;
+  display: list-item;
+  margin-left: 1.5em;
+  font-size: var(--body-font);
+  line-height: 1.4;
+}
+
+/* Hobbies Section */
+.hobbies-list {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: var(--content-gap);
+}
+
+.hobby-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--item-gap);
+}
+
+.hobby-item span {
+  font-size: var(--small-font);
+}
+
+.hobby-icon {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  background-color: var(--profpic-bg-clr);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--icon-font);
+}
+
+/* Languages Section */
+.languages-list {
+  display: flex;
+  justify-content: space-around;
+}
+
+.language-item.greek {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-family: "GreekFreak";
+}
+
+.language-item.english {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-family: "Canterbury";
+}
+
+.language-item.german {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-family: "BreitkopfFraktur";
+}
+
+/* -----------------------------
+   PRINT STYLES
+   ----------------------------- */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+  
+  html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .cv-container {
+    width: 100%;
+    max-width: none;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    transform: none;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+  
+  /* Adjust sizing for print */
+  .cv-name {
+    font-size: 40px;
+    margin-top: 0;
+  }
+  
+  .section-title {
+    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  
+  /* Reduce padding to maximize content space */
+  .profile-image-container {
+    padding: 15px;
+  }
+  
+  .sidebar-content, .cv-main-content {
+    padding: 15px;
+  }
+  
+  /* Make content more compact */
+  .contact-section, .about-section, .experience-section, 
+  .hobbies-section, .languages-section {
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .skill-icon, .hobby-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+  }
+  
+  /* Ensure no page breaks */
+  .cv-sidebar, .cv-main-content {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
 }
