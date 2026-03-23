@@ -345,8 +345,9 @@ body {
   
   /* Adjust sizing for print */
   .cv-name {
-    font-size: 40px;
+    font-size: 70px;
     margin-top: 0;
+    margin-bottom: 5px;
   }
   
   .section-title {
